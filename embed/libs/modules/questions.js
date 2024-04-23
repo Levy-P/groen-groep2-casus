@@ -65,8 +65,21 @@ export class Questions {
         } else {
             console.log('No more questions');
         }
-
         // const nextQuestion = getNextQuestion();
         // nextQuestion.appendQuestion();
+    }
+
+    static startQuestions() {
+        vragen[0].appendQuestion();
+
+        const answerElements = document.querySelectorAll('.antwoord');
+        answerElements.forEach(answer => {
+            answer.addEventListener('click', (e) => {
+                const answerId = e.target.id;
+                const answerIndex = parseInt(answerId.split('-')[2]);
+                const currentQuestionIndex = parseInt(answerId.split('-')[1]);
+                vragen[currentQuestionIndex].showNextQuestion(currentQuestionIndex);
+            });
+        });
     }
 }

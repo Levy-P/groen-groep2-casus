@@ -6,8 +6,5 @@ export const vragen = [
     new Questions('Wat is de hoofdstad van ietsanders?', [], 'open')
 ];
 
-// vragen[0].appendQuestion();
-// vragen.showNextQuestion(0);
-
-
-vragen[0].showNextQuestion(0);
+// vragen[0].showNextQuestion(0);
+Questions.startQuestions();
