@@ -1,7 +1,9 @@
 import { Questions } from './modules/questions.js';
 
-// template literal questionType=0 question answers custom=false
-const vragen =
-    new Questions(0, 'Wat is de hoofdstad van Nederland?', ['Amsterdam', 'Rotterdam', 'Den Haag', 'Utrecht']);
+// template literal question, answers, questionType(default = multiple choice | open = text area)
+const vragen = [
+    new Questions('Wat is de hoofdstad van Nederland?', ['Amsterdam', 'Rotterdam', 'Den Haag', 'Utrecht']),
+    new Questions('Wat is de hoofdstad van ietsanders?', [], 'open')
+];
 
-vragen.appendQuestion();
+// vragen[0].appendQuestion();
