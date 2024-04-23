@@ -1,3 +1,5 @@
+import { vragen } from "../app.js";
+
 const vraagContainer = document.getElementById('vraag');
 const antwoordenContainer = document.getElementById('antwoorden');
 
@@ -10,6 +12,15 @@ export class Questions {
         this.answers = answers;
         this.questionType = questionType;
         this.id = `question-${idCounter++}`;
+    }
+
+    static getNextQuestion(currentIndex) {
+        if (currentIndex < vragen.length - 1) {
+            currentIndex++;
+            return vragen[currentIndex];
+        } else {
+            return null;
+        }
     }
 
     appendQuestion() {
@@ -44,16 +55,18 @@ export class Questions {
         }
     }
 
-    showNextQuestion() {
-        // Clear previous question and answers
+    showNextQuestion(currentIndex) {
         vraagContainer.innerHTML = '';
         antwoordenContainer.innerHTML = '';
 
-        // Show the next question and answers
-        // Replace the following code with your logic to determine the next question
-        const nextQuestion = getNextQuestion();
-        nextQuestion.appendQuestion();
-    }
+        const nextQuestion = Questions.getNextQuestion(currentIndex);
+        if (nextQuestion) {
+            nextQuestion.appendQuestion();
+        } else {
+            console.log('No more questions');
+        }
 
-    getNextQuestion() {}
+        // const nextQuestion = getNextQuestion();
+        // nextQuestion.appendQuestion();
+    }
 }
