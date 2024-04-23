@@ -1,3 +1,16 @@
-body {
-    background-color: #fff;
+:root {
+    --wh: #fff; 
+    --bl: #000;
+    --c1: #0024a2; 
+    --c2: #94c5ff;
+}
+
+#background {
+    position: absolute;
+    top:0; left:0;
+    width: 100vw; height: 100vh;
+    z-index: -99;
+
+    background-color: var(--wh);
+    opacity: 0.5;
 }
