@@ -6,4 +6,4 @@ const vragen = [
     new Questions('Wat is de hoofdstad van ietsanders?', [], 'open')
 ];
 
-vragen[1].appendQuestion();
+// vragen[0].appendQuestion();

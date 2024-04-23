@@ -31,8 +31,29 @@ export class Questions {
         if (this.questionType === 'open') {
             vraagContainer.innerHTML = this.question;
             const textArea = document.createElement('textarea');
+            textArea.placeholder = 'Typ hier je antwoord';
+            textArea.id = `${this.id}-textarea`;
             textArea.classList.add('antwoord-textarea');
             antwoordenContainer.appendChild(textArea);
+
+            const submitBtn = document.createElement('a');
+            submitBtn.innerHTML = 'Submit';
+            submitBtn.classList.add('antwoord');
+            submitBtn.id = `${this.id}-answer-submit`;
+            antwoordenContainer.appendChild(submitBtn);
         }
     }
+
+    showNextQuestion() {
+        // Clear previous question and answers
+        vraagContainer.innerHTML = '';
+        antwoordenContainer.innerHTML = '';
+
+        // Show the next question and answers
+        // Replace the following code with your logic to determine the next question
+        const nextQuestion = getNextQuestion();
+        nextQuestion.appendQuestion();
+    }
+
+    getNextQuestion() {}
 }
