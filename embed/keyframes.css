@@ -1,0 +1,20 @@
+.keyframe-margin-left {animation-name: margin-left !important;}
+.keyframe-blinking {animation-name: blinking !important;}
+
+h1 {
+    color: #000;
+}
+
+@keyframes margin-left {
+    0%   {margin-left: 200px;}
+    100% {margin-left: 0px;}
+}
+
+@keyframes blinking {
+    0%   {background-color: #000;}
+    20%  {background-color: #fff;}
+    40%  {background-color: #000;}
+    60%  {background-color: #fff;}
+    80%  {background-color: #000;}
+    100% {background-color: #fff;}
+}
