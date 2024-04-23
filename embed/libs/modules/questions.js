@@ -1,32 +1,30 @@
 const vraagContainer = document.getElementById('vraag');
-const antwoordContainer = document.getElementById('antworden');
+const antwoordenContainer = document.getElementById('antwoorden');
 
 
 export class Questions {
-    constructor(questionType, question, answers, custom=false) {
+    constructor(question, answers=null, questionType='default') {
         this.question = question;
         this.answers = answers;
         this.questionType = questionType;
-        this.custom = custom;
     }
 
     appendQuestion() {
-        switch (this.questionType) {
-            case 0:
-                'true or false';
-            case 1:
-                'multiple choice';
-            case 2:
-                'open vraag';
-            default:
-                console.log('Geen vraagtype geselecteerd');
-                break;
+        if (this.answers === null && this.questionType === 'default') {
+            throw new Error('Answers are required for this question type');
         }
+
+        if (this.questionType === 'default') {
+            vraagContainer.innerHTML = this.question;
+            this.answers.forEach(answer => {
+                const antwoord = document.createElement('a');
+                antwoord.innerHTML = answer;
+                antwoord.classList.add('antwoord');
+                antwoordenContainer.appendChild(antwoord);
+            });
+        }
+
         vraagContainer.innerHTML = this.question;
-        this.answers.forEach(answer => {
-            const answerTag = document.createElement('a');
-            answerTag.textContent = answer;
-            antwoordContainer.appendChild(answerTag);
-        });
+        const textArea = document.createElement('textarea');
     }
 }
