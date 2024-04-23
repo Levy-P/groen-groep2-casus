@@ -7,7 +7,7 @@ export class Questions {
         this.question = question;
         this.answers = answers;
         this.questionType = questionType;
-        // this.nextQuestion = nextQuestion;
+        this.custom = custom;
     }
 
     appendQuestion() {
