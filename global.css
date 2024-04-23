@@ -1,0 +1,16 @@
+* {margin:0;padding:0;}
+
+:root {
+    font-family: "Roboto Slab", "Averial Serif Libre", serif;
+    box-sizing: content-box;
+}
+
+.flex {display:flex;}
+.grid {display:grid;}
+
+body {
+    background-image: url('https://morphe.eu/wp-content/uploads/background_01.jpg');
+    background-position: top;
+    background-size: cover;
+    background-attachment: fixed;
+}
