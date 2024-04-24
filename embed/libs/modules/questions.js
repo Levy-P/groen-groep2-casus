@@ -20,19 +20,41 @@ export class Question {
 
     appendQuestion() {
         switch(this.questionType) {
+            // * Meerkeuze Vraag
+            case 1: {
+                if (this.answers === null) throw new Error('Answers are required for this question type');
+
+                vraagContainer.innerHTML = this.question;
+                this.answers.forEach((answer, index) => {
+                    const antwoord = document.createElement('a');
+
+                    antwoord.classList.add('antwoord');
+                    antwoord.innerHTML = answer.text;
+                    antwoord.id = `${this.id}-answer-${index + 1}`;
+                    antwoord.setAttribute('evt',answer.event)
+                    antwoordenContainer.appendChild(antwoord);
+                });
+                break;
+            }
+
             // * Slider Vraag
             case 2: {
+                if (this.answers === null) throw new Error('Answers are required for this question type');
+                if (!('range' in this.answers)) throw new Error('Property range must be defined with [min,max]');
+
                 const sliderContainer = document.createElement('div'),
                       sliderInput = document.createElement('input');
 
+                let range = this.answers.range
                 sliderInput.classList.add('slider');
                 sliderInput.classList.add('antwoord');
                 sliderInput.setAttribute('type','range');
 
-                let mean = Math.round((this.answers[0]+this.answers[1])/2);
-                sliderInput.setAttribute('min',this.answers[0]);
-                sliderInput.setAttribute('max',this.answers[1]);
+                let mean = Math.round((range[0]+range[1])/2);
+                sliderInput.setAttribute('min',range[0]);
+                sliderInput.setAttribute('max',range[1]);
                 sliderInput.setAttribute('value',mean);
+                sliderInput.setAttribute('evt',this.answers.event)
 
                 sliderContainer.classList.add('slider-container');
                 sliderContainer.appendChild(sliderInput);
@@ -41,8 +63,8 @@ export class Question {
                 break;
             }
 
-            // * Meerkeuze Vraag
-            case 1: {
+            // * Meerkeuze Vraag met zin invullen 
+            case 3: {
                 if (this.answers === null) throw new Error('Answers are required for this question type');
 
                 vraagContainer.innerHTML = this.question;
