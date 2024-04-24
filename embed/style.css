@@ -1,9 +1,17 @@
 :root {
+    font-family: "Roboto Slab", "Averial Serif Libre", serif;
+    box-sizing: content-box;
+    
     --wh: #fff; 
     --bl: #000;
     --c1: #0024a2; 
     --c2: #94c5ff;
 }
+
+* {margin:0;padding:0;}
+
+.flex {display:flex;}
+.grid {display:grid;}
 
 #background {
     position: absolute;
