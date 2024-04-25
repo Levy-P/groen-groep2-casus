@@ -96,10 +96,15 @@ export class Question {
                 this.answers.answers.forEach((answer,index) => {
                     const antwoord = document.createElement('a');
 
-                    antwoord.classList.add('antwoord');
+                    antwoord.classList.add('antwoord-checkbox');
                     antwoord.innerHTML = answer;
                     antwoord.id = `${this.id}-`+answer;
-                    antwoord.setAttribute('evt',vraagEvent)
+                    antwoord.setAttribute('evt',vraagEvent);
+                    antwoord.addEventListener('click', (e) => {
+                        e.stopImmediatePropagation();
+                        e.stopPropagation();
+                        antwoord.classList.toggle('selected');
+                    });
                     antwoordenContainer.appendChild(antwoord);
                 })
 
