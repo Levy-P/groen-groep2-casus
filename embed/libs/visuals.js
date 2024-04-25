@@ -22,7 +22,7 @@ for (svg in img) {
     img[svg].src = document.getElementById('svg-'+svg);
 }
 
-let trainX = 0, 
+let trainX = ((window,innerWidth * (window.innerHeight/500) ) / 2) - 15, 
     scale;
 let w_width, w_height;
 
