@@ -13,116 +13,77 @@ export const vragen = {
         {
             text:'Is uit zijn jasje gegroeid!',
             value:'gegroeid',
-            event:'open'
+            event:'reden_gegroeid'
         },
         {
             text:'Kan naar een hoger niveau',
             value:'hoger',
-            event:0
+            event:'hoger_niveau'
         },
         {
             text:'Heeft te maken met (nieuwe) wet en regelgeving',
             value:'',
-            event:0
+            event:'heeft_te_maken_met'
         },
         {
             text:'Is goed zoals het is',
             value:'utrecht',
-            event:0
+            event:'is_goed_zoals_is'
         }
     ]),
 
-    reden_gegroeid: new Question(1, 'Dit komt door', [
+    reden_gegroeid: new Question(3, 'Dit komt door', [
         {
-            text:'Is uit zijn jasje gegroeid!',
-            value:'gegroeid',
-            event:'open'
-        },
-        {
-            text:'Kan naar een hoger niveau',
-            value:'hoger',
+            text:'Organische groei',
+            value:'groei',
             event:0
         },
         {
-            text:'Heeft te maken met (nieuwe) wet en regelgeving',
-            value:'',
-            event:0
-        },
-        {
-            text:'Is goed zoals het is',
-            value:'utrecht',
+            text:'Fusie',
+            value:'fusie',
             event:0
         }
     ]),
 
     hoger_niveau: new Question(1, 'Wij willen graag', [
         {
-            text:'Is uit zijn jasje gegroeid!',
-            value:'gegroeid',
-            event:'open'
-        },
-        {
-            text:'Kan naar een hoger niveau',
-            value:'hoger',
+            text:'Vergroten van wendbaarheid en beter inspelen op innovatie en technische verandering​',
+            value:'vergroten',
             event:0
         },
         {
-            text:'Heeft te maken met (nieuwe) wet en regelgeving',
-            value:'',
+            text:'(Her) structureren van bedrijfsprocessen​',
+            value:'structueren',
             event:0
         },
         {
-            text:'Is goed zoals het is',
-            value:'utrecht',
+            text:'Met IT dienstverlening beter inspelen op klantvraag​',
+            value:'inspelen',
             event:0
         }
     ]),
 
-    heeft_te_maken_met: new Question(1, 'En willen dit', [
+    heeft_te_maken_met: new Question(3, 'En willen dit', [
         {
-            text:'Is uit zijn jasje gegroeid!',
-            value:'gegroeid',
-            event:'open'
-        },
-        {
-            text:'Kan naar een hoger niveau',
-            value:'hoger',
+            text:'Inrichten',
+            value:'inrichten',
             event:0
         },
         {
-            text:'Heeft te maken met (nieuwe) wet en regelgeving',
-            value:'',
-            event:0
-        },
-        {
-            text:'Is goed zoals het is',
-            value:'utrecht',
+            text:'Automatiseren',
+            value:'automatiseren',
             event:0
         }
     ]),
 
-    is_goed_zoal_is: new Question(1, 'Want: (vink aan wat van toepassing)', [  // TODO: * Meerkeuze Vraag met zin invullen
-        {
-            text:'Is uit zijn jasje gegroeid!',
-            value:'gegroeid',
-            event:'open'
-        },
-        {
-            text:'Kan naar een hoger niveau',
-            value:'hoger',
-            event:0
-        },
-        {
-            text:'Heeft te maken met (nieuwe) wet en regelgeving',
-            value:'',
-            event:0
-        },
-        {
-            text:'Is goed zoals het is',
-            value:'utrecht',
-            event:0
-        }
-    ]),
+    is_goed_zoals_is: new Question(4, 'Want: (vink aan wat van toepassing is)', {
+        event: 0,
+        answers: [
+            'Alle koppelvlakken met serviceproviders zijn geautomatiseerd',
+            'Optimale samenwerking met service providers en vendoren',
+            'Er wordt snel en adequaat ingespeeld op de klantvraag'
+        ]
+    }),
 };
 
 Question.startQuestions();
