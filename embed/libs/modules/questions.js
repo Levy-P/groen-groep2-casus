@@ -92,13 +92,14 @@ export class Question {
                 if (this.answers === null) throw new Error('Answers are required for this question type');
 
                 vraagTekst.innerHTML = this.question;
+                const vraagEvent = this.answers.event;
                 this.answers.answers.forEach((answer,index) => {
                     const antwoord = document.createElement('a');
 
                     antwoord.classList.add('antwoord');
-                    antwoord.innerHTML = answer.text;
+                    antwoord.innerHTML = answer;
                     antwoord.id = `${this.id}-`+answer;
-                    antwoord.setAttribute('evt',answer.event)
+                    antwoord.setAttribute('evt',vraagEvent)
                     antwoordenContainer.appendChild(antwoord);
                 })
 
