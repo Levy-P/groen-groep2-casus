@@ -38,3 +38,27 @@ main {
 #canvas {
     background-color: #0024a2;
 }
+
+#antwoorden-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.antwoord {
+    width: clamp(300px, fit-content, 50vw);
+    font-size: 1.2rem;
+    padding: 1rem;
+    color: var(--wh);
+    background-color: var(--c1);
+    border-radius: 50vh;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.antwoord:hover {
+    background-color: var(--c2);
+    color: var(--bl);
+}
