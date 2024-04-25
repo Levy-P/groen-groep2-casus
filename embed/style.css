@@ -10,6 +10,13 @@
 
 * {margin:0;padding:0;}
 
+body {
+    height: 100vw;
+    height: 100vh;
+
+    overflow: hidden;
+}
+
 #background {
     position: absolute;
     top:0; left:0;
@@ -18,4 +25,16 @@
 
     background-color: var(--wh);
     opacity: 0.8;
+}
+
+main {
+    width: 100vw; height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+#canvas {
+    background-color: #0024a2;
 }

@@ -28,7 +28,7 @@ export class Question {
 
                     antwoord.classList.add('antwoord');
                     antwoord.innerHTML = answer.text;
-                    antwoord.id = `${this.id}-answer-${index + 1}`;
+                    antwoord.id = `${this.id}-${answer.value}`;
                     antwoord.setAttribute('evt',answer.event)
                     antwoordenContainer.appendChild(antwoord);
                 });
@@ -46,6 +46,7 @@ export class Question {
                       sliderInput = document.createElement('input');
 
                 let range = this.answers.range
+                sliderInput.id = 'slide-input'
                 sliderInput.classList.add('slider');
                 sliderInput.classList.add('antwoord');
                 sliderInput.setAttribute('type','range');
@@ -94,7 +95,7 @@ export class Question {
 
                     antwoord.classList.add('antwoord');
                     antwoord.innerHTML = answer.text;
-                    antwoord.id = `${this.id}-answer-${index + 1}`;
+                    antwoord.id = `${this.id}-`+answer;
                     antwoord.setAttribute('evt',answer.event)
                     antwoordenContainer.appendChild(antwoord);
                 })
