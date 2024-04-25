@@ -39,6 +39,10 @@ main {
     background-color: #0024a2;
 }
 
+#vraag {
+    margin-top: 5rem;
+}
+
 #antwoorden-container {
     width: 100%;
     display: flex;
