@@ -30,6 +30,14 @@ export const vragen = {
             event:0
         }
     ]),
+
+    reden_gegroeid: new Question,
+
+    willen_graag: new Question,
+
+    willen_dit: new Question,
+
+    is_goed_want: new Question
 };
 
 Question.startQuestions();
