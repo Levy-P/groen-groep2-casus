@@ -24,6 +24,19 @@ je kan vragen beantwoorden
 ## Installation
 je kan de link van de website op je social media zetten
 of je kan een embed toevoegen
+```
+<iframe src="morphe.eu/quickscan/embed" width="640" height="360"></iframe>
+```
 
 ## Usage
-foo
+nieuwe vraag toevoegen
+questionType: 0 = multiple choice, 1 = multiple choice with answers, 2 = slider
+```
+naam_vraag: new Question(questionType, 'De vraag zelf', [
+    {
+        text: 'antwoord',
+        value: 'wat er mee word gegeven',
+        event: de key van de vraag waar die naar toe moet
+    }
+])
+```
