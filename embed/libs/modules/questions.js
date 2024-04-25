@@ -86,6 +86,25 @@ export class Question {
                 break;
             }
 
+            // * Meerkeuze Vraag met meerdere antwoorden
+            case 4: {
+                if (this.answers === null) throw new Error('Answers are required for this question type');
+
+                vraagContainer.innerHTML = this.question;
+                this.answers.forEach((answer,index) => {
+                    const antwoord = document.createElement('a');
+
+                    antwoord.classList.add('antwoord');
+                    antwoord.innerHTML = answer.text;
+                    antwoord.id = `${this.id}-answer-${index + 1}`;
+                    antwoord.setAttribute('evt',answer.event)
+                    antwoordenContainer.appendChild(antwoord);
+                })
+
+                this.makeQuestionInteraction(2); //TODO: meerdere antwoorden
+                break;
+            }
+
             default: throw new Error(`Questiontype '${this.questionType}' is not recognized`)
         }
     }
