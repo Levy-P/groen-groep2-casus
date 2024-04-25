@@ -1,5 +1,11 @@
 # Quick Scan
-Het doel van dit project is om samen te werken met de eindklant of de eindklant in staat te stellen zelfstandig een quick scan uit te voeren. Met deze quick scan stellen we de klant vragen aan de hand van een wireframe, waarbij de vragen afhankelijk zijn van de antwoorden van de klant. Op basis van de resultaten van de quick scan kunnen we samen met de klant bepalen hoe we hen het beste kunnen ondersteunen en welke gebieden het meest moeten worden benadrukt. Daarnaast dient het als een interessante marketingtool. Een Quick Scan is meestal saai en eendimensionaal, waarbij 20 opeenvolgende vragen worden beantwoord. Ons doel is om een meer plezierige/interactieve/informatieve quick scan te ontwikkelen.
+Het doel van dit project is om samen te werken met de eindklant of de eindklant in staat te stellen zelfstandig een quick scan uit te voeren. 
+
+Met deze quick scan stellen we de klant simpele vragen over zijn of haar organisatie, waarbij de vragen afhankelijk zijn van de antwoorden die zijn ontvangen. 
+
+Op basis van de resultaten van de quick scan kunnen we samen met de klant bepalen hoe we hen het beste kunnen ondersteunen en welke gebieden het meest moeten worden benadrukt. 
+
+Daarnaast dient het als een interessante marketingtool. Een Quick Scan is meestal saai en eendimensionaal, waarbij veel opeenvolgende vragen worden beantwoord.
 
 ## Table of Contents
 - [Project Purpose](#project-purpose)
