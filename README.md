@@ -17,10 +17,13 @@ Het doel van dit project is om ervoor te zorgen dat de klanten van Morphé zelfs
 - JavaScript
 
 ## Features
-foo
+je kan vragen toevoegen
+je kan een embed op een website platsen
+je kan vragen beantwoorden
 
 ## Installation
-foo
+je kan de link van de website op je social media zetten
+of je kan een embed toevoegen
 
 ## Usage
 foo
