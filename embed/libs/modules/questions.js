@@ -1,8 +1,9 @@
 import { vragen } from "../app.js";
 import { scanResults } from "../app.js";
 
-const vraagContainer = document.getElementById('vraag');
-const antwoordenContainer = document.getElementById('antwoorden');
+const vraagTekst = document.getElementById('vraag');
+const vraagContainer = document.getElementById('vraag-container');
+const antwoordenContainer = document.getElementById('antwoorden-container');
 
 export class Question {
     constructor(questionType=0, question, answers=null) {
@@ -21,7 +22,7 @@ export class Question {
             case 1: {
                 if (this.answers === null) throw new Error('Answers are required for this question type');
 
-                vraagContainer.innerHTML = this.question;
+                vraagTekst.innerHTML = this.question;
                 this.answers.forEach((answer, index) => {
                     const antwoord = document.createElement('a');
 
@@ -68,7 +69,7 @@ export class Question {
             case 3: {
                 if (this.answers === null) throw new Error('Answers are required for this question type');
 
-                vraagContainer.innerHTML = this.question;
+                vraagTekst.innerHTML = this.question;
                 this.answers.forEach((answer, index) => {
                     const antwoord = document.createElement('a');
 
@@ -87,7 +88,7 @@ export class Question {
             case 4: {
                 if (this.answers === null) throw new Error('Answers are required for this question type');
 
-                vraagContainer.innerHTML = this.question;
+                vraagTekst.innerHTML = this.question;
                 this.answers.answers.forEach((answer,index) => {
                     const antwoord = document.createElement('a');
 
@@ -149,7 +150,7 @@ export class Question {
     }
 
     clearQuestions() {
-        vraagContainer.innerHTML = antwoordenContainer.innerHTML = '';
+        vraagTekst.innerHTML = antwoordenContainer.innerHTML = '';
     }
 
     static giveKeys() {
