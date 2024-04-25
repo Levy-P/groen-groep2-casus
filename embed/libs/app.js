@@ -1,6 +1,5 @@
 import { Question } from './modules/questions.js';
 
-// template literal question, answers, questionType(default = multiple choice | open = text area)
 // questionType: 0 = multiple choice, 1 = multiple choice with answers, 2 = slider
 export const scanResults = [];
 export const vragen = {
