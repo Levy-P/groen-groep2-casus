@@ -34,6 +34,8 @@ export class Question {
                     antwoord.setAttribute('evt',answer.event)
                     antwoordenContainer.appendChild(antwoord);
                 });
+
+                this.makeQuestionInteraction(1);
                 break;
             }
 
@@ -60,6 +62,8 @@ export class Question {
                 sliderContainer.appendChild(sliderInput);
 
                 antwoordenContainer.appendChild(sliderContainer);
+
+                this.makeQuestionInteraction(2);
                 break;
             }
 
@@ -77,26 +81,41 @@ export class Question {
                     antwoord.setAttribute('evt',answer.event)
                     antwoordenContainer.appendChild(antwoord);
                 });
+
+                this.makeQuestionInteraction(1);
                 break;
             }
 
             default: throw new Error(`Questiontype '${this.questionType}' is not recognized`)
         }
-
-        const answerElements = document.querySelectorAll('.antwoord');
-        answerElements.forEach(answer => {
-            answer.addEventListener('click', (e) => {
-                e.stopImmediatePropagation();
-                e.stopPropagation();
-
-                const answerEvt = answer.getAttribute('evt');
-                if (answerEvt in vragen) vragen[answerEvt].showNextQuestion();
-                else this.clearQuestions();
-            });
-        });
     }
 
-    showNextQuestion() {
+    makeQuestionInteraction(type) {
+        switch(type) {
+            case 1: {
+                const answerElements = document.querySelectorAll('.antwoord');
+                answerElements.forEach(answer => {
+                    answer.addEventListener('click', (e) => {
+                        e.stopImmediatePropagation();
+                        e.stopPropagation();
+
+                        const answerEvt = answer.getAttribute('evt');
+                        if (answerEvt in vragen) vragen[answerEvt].showNextQuestion();
+                        else this.clearQuestions();
+                    });
+                });
+                break;
+            }
+
+            case 2: {
+                const submitBtn = document.createElement('a');
+                submitBtn.id = 'submit-'+this.id;
+                antwoordenContainer.appendChild(submitBtn);
+            }
+        }
+    }
+
+    showNextQuestion(type) {
         scanResults.push('test');
         console.log(scanResults);
         this.clearQuestions()
