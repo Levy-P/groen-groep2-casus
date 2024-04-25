@@ -62,3 +62,7 @@ main {
     background-color: var(--c2);
     color: var(--bl);
 }
+
+#assets {
+    display: none !important;
+}
