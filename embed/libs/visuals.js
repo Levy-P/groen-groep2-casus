@@ -1,5 +1,6 @@
 const c = document.getElementById('canvas');
 const ctx = c.getContext('2d');
+const frame = document.querySelector('main');
 
 ctx.webkitImageSmoothingEnabled = false;
 ctx.mozImageSmoothingEnabled = false;
@@ -8,30 +9,40 @@ ctx.imageSmoothingEnabled = false;
 const img = {
     train: {
         src: new Image(),
+        svg: true,
         width: 698,
         height: 66
     },
     rail: {
         src: new Image(),
+        svg: true,
         width: 100,
         height: 26
+    },
+    user: {
+        src: new Image(),
+        svg: false,
+        width: 512,
+        height: 512
     }
 }
 
-for (svg in img) {
-    img[svg].src = document.getElementById('svg-'+svg);
+for (key in img) {
+    img[key].src = document.getElementById(((img[key].svg) ?'svg-':'asset-')+key);
 }
 
-let trainX = ((window,innerWidth * (window.innerHeight/500) ) / 2) - 15, 
+let trainX = 0,
     scale;
-let w_width, w_height;
 
+let w_width, w_height;
 setInterval(() => {
-    c.height = window.innerHeight/5; 
+    const bound = frame.getBoundingClientRect();
+    c.height = bound.height/4; 
     scale = c.height/100;
 
     let width, height;
-    w_width = c.width = window.innerWidth;
+    w_width = bound.width;
+    c.width = w_width;
     w_height = c.height;
 
     let track = img.rail;
@@ -53,6 +64,18 @@ setInterval(() => {
     let train = img.train;
     width = train.width;
     height = train.height;
+
+    let person = img.user.src,
+        trainPos = trainX - width;
+
+    let doors = [139,251,320,377,535];
+    for (let i = 0; i < 5; i++) {
+        doors[i] += trainPos;
+    }
+
+    for (let i = 0; i < 5; i++) {
+        drawImg(person, doors[i], 0, 25, 25);
+    }
 
     drawImg(
         train.src,
@@ -83,13 +106,26 @@ const train = {
 
     arrive: function() {
         const trainWidth = img.train.width;
-        let destination = ((w_width*scale)/2)-15;
+        let destination = (trainWidth + w_width/scale) / 2
         const animation = setInterval(() => {
-            trainX += (destination-trainX)/60;
+            trainX += (destination-trainX)/1;
             if (trainX >= destination-1) {
                 trainX = destination;
                 clearInterval(animation);
             }
         }, 10)
+    },
+    
+    center: function() {
+        const trainWidth = img.train.width;
+        trainX = (trainWidth + w_width/scale) / 2
+    },
+    
+    left: function() {
+        trainX = img.train.width;
     }
 }
+
+setInterval(() => {
+    train.center();
+}, 50);
