@@ -35,10 +35,6 @@ main {
     flex-direction: column;
 }
 
-#canvas {
-    background-color: #0024a2;
-}
-
 #vraag {
     margin-top: 5rem;
 }
@@ -65,4 +61,8 @@ main {
 .antwoord:hover {
     background-color: var(--c2);
     color: var(--bl);
+}
+
+#assets {
+    display: none !important;
 }
