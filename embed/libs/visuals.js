@@ -24,14 +24,15 @@ for (svg in img) {
 
 let trainX = 0, 
     scale;
+let w_width, w_height;
 
 setInterval(() => {
     c.height = window.innerHeight/5; 
     scale = c.height/100;
 
-    const w_width = c.width = window.innerWidth,
-        w_height = c.height;
     let width, height;
+    w_width = c.width = window.innerWidth;
+    w_height = c.height;
 
     let track = img.rail;
     width = track.width;
@@ -53,8 +54,6 @@ setInterval(() => {
     width = train.width;
     height = train.height;
 
-    trainX = width;
-
     drawImg(
         train.src,
         trainX-width,
@@ -66,4 +65,31 @@ setInterval(() => {
 
 function drawImg(src,x,y,w,h) {
     ctx.drawImage(src,x*scale,y*scale,w*scale,h*scale);
+}
+
+const train = {
+    move: function(){
+        let speed = 0;
+        const maxSpeed = 14;
+        const animation = setInterval(() => {
+            speed += (maxSpeed-speed)/22;
+            trainX += speed;
+            if (trainX > w_width+img.train.width) {
+                trainX = 0;
+                clearInterval(animation);
+            }
+        }, 10)
+    },
+
+    arrive: function() {
+        const trainWidth = img.train.width;
+        let destination = ((w_width*scale)/2)-15;
+        const animation = setInterval(() => {
+            trainX += (destination-trainX)/60;
+            if (trainX >= destination-1) {
+                trainX = destination;
+                clearInterval(animation);
+            }
+        }, 10)
+    }
 }
