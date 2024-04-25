@@ -4,14 +4,11 @@ import { scanResults } from "../app.js";
 const vraagContainer = document.getElementById('vraag');
 const antwoordenContainer = document.getElementById('antwoorden');
 
-let idCounter = 0;
-
 export class Question {
     constructor(questionType=0, question, answers=null) {
         this.question = question;
         this.answers = answers;
         this.questionType = questionType;
-        this.id = `question-${idCounter++}`;
     }
 
     static getNextQuestion(answerEvent) {
@@ -91,7 +88,7 @@ export class Question {
                 if (this.answers === null) throw new Error('Answers are required for this question type');
 
                 vraagContainer.innerHTML = this.question;
-                this.answers.forEach((answer,index) => {
+                this.answers.answers.forEach((answer,index) => {
                     const antwoord = document.createElement('a');
 
                     antwoord.classList.add('antwoord');
@@ -128,21 +125,37 @@ export class Question {
 
             case 2: {
                 const submitBtn = document.createElement('a');
+                submitBtn.innerText = 'Submit';
                 submitBtn.id = 'submit-'+this.id;
+
+                submitBtn.addEventListener('click', (e) => {
+                    e.stopImmediatePropagation();
+                    e.stopPropagation();
+
+                    const answerEvt = this.answers.event;
+                    if (answerEvt in vragen) vragen[answerEvt].showNextQuestion();
+                    else this.clearQuestions();
+                });
+
                 antwoordenContainer.appendChild(submitBtn);
             }
         }
     }
 
-    showNextQuestion(type) {
-        scanResults.push('test');
-        console.log(scanResults);
+    showNextQuestion() {
         this.clearQuestions()
-        this.appendQuestion();
+        if (this.id == 0) {}
+        else this.appendQuestion();
     }
 
     clearQuestions() {
         vraagContainer.innerHTML = antwoordenContainer.innerHTML = '';
+    }
+
+    static giveKeys() {
+        for (let key in vragen) {
+            vragen[key].id = key;
+        }
     }
 
     static startQuestions() {

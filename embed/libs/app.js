@@ -87,3 +87,4 @@ export const vragen = {
 };
 
 Question.startQuestions();
+Question.giveKeys();
