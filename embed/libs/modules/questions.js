@@ -42,6 +42,8 @@ export class Question {
                 if (this.answers === null) throw new Error('Answers are required for this question type');
                 if (!('range' in this.answers)) throw new Error('Property range must be defined with [min,max]');
 
+                vraagTekst.innerHTML = this.question;
+
                 const sliderContainer = document.createElement('div'),
                       sliderInput = document.createElement('input');
 
@@ -127,6 +129,7 @@ export class Question {
 
             case 2: {
                 const submitBtn = document.createElement('a');
+                submitBtn.classList.add('antwoord');
                 submitBtn.innerText = 'Submit';
                 submitBtn.id = 'submit-'+this.id;
 
