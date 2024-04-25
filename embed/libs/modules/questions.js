@@ -49,8 +49,7 @@ export class Question {
 
                 let range = this.answers.range;
                 sliderInput.id = 'slide-input';
-                sliderInput.classList.add('slider');
-                sliderInput.classList.add('antwoord');
+                sliderInput.classList.add('slider-antwoord');
                 sliderInput.setAttribute('type','range');
 
                 let mean = Math.round((range[0]+range[1])/2);
