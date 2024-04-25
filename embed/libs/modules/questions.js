@@ -29,7 +29,7 @@ export class Question {
                     antwoord.classList.add('antwoord');
                     antwoord.innerHTML = answer.text;
                     antwoord.id = `${this.id}-${answer.value}`;
-                    antwoord.setAttribute('evt',answer.event)
+                    antwoord.setAttribute('evt',answer.event);
                     antwoordenContainer.appendChild(antwoord);
                 });
 
@@ -45,8 +45,8 @@ export class Question {
                 const sliderContainer = document.createElement('div'),
                       sliderInput = document.createElement('input');
 
-                let range = this.answers.range
-                sliderInput.id = 'slide-input'
+                let range = this.answers.range;
+                sliderInput.id = 'slide-input';
                 sliderInput.classList.add('slider');
                 sliderInput.classList.add('antwoord');
                 sliderInput.setAttribute('type','range');
@@ -55,7 +55,7 @@ export class Question {
                 sliderInput.setAttribute('min',range[0]);
                 sliderInput.setAttribute('max',range[1]);
                 sliderInput.setAttribute('value',mean);
-                sliderInput.setAttribute('evt',this.answers.event)
+                sliderInput.setAttribute('evt',this.answers.event);
 
                 sliderContainer.classList.add('slider-container');
                 sliderContainer.appendChild(sliderInput);
@@ -77,7 +77,7 @@ export class Question {
                     antwoord.classList.add('antwoord');
                     antwoord.innerHTML = answer.text;
                     antwoord.id = `${this.id}-answer-${index + 1}`;
-                    antwoord.setAttribute('evt',answer.event)
+                    antwoord.setAttribute('evt',answer.event);
                     antwoordenContainer.appendChild(antwoord);
                 });
 
