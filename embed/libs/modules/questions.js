@@ -175,7 +175,9 @@ export class Question {
     }
 
     static startQuestions() {
-        window.startQuestions();
         vragen[0].appendQuestion();
+        setTimeout(() => {
+            window.startQuestions();
+        }, 500);
     }
 }
