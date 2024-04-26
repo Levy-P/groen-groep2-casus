@@ -3,7 +3,7 @@ import { scanResults } from "../app.js";
 
 const vraagTekst = document.getElementById('vraag');
 const vraagContainer = document.getElementById('vraag-container');
-const antwoordenContainer = document.getElementById('antwoorden-container');
+const antwoordenContainer = document.getElementsByClassName('antwoorden-container')[0];
 
 export class Question {
     constructor(questionType=0, question, answers=null) {
@@ -17,6 +17,8 @@ export class Question {
     }
 
     appendQuestion() {
+        antwoordenContainer.id = 'vraag-'+this.id;
+
         switch(this.questionType) {
             // * Meerkeuze Vraag
             case 1: {
@@ -48,9 +50,13 @@ export class Question {
                       sliderInput = document.createElement('input');
 
                 let range = this.answers.range;
-                sliderInput.id = 'slide-input';
+                sliderInput.id = 'slider-input';
                 sliderInput.classList.add('slider-antwoord');
                 sliderInput.setAttribute('type','range');
+
+                sliderInput.addEventListener('change',(e)=>{
+                    window.sliderChange();
+                });
 
                 let mean = Math.round((range[0]+range[1])/2);
                 sliderInput.setAttribute('min',range[0]);
@@ -169,6 +175,7 @@ export class Question {
     }
 
     static startQuestions() {
+        window.startQuestions();
         vragen[0].appendQuestion();
     }
 }

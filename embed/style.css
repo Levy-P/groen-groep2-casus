@@ -39,7 +39,7 @@ main {
     margin-top: 5rem;
 }
 
-#antwoorden-container {
+.antwoorden-container {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -81,4 +81,57 @@ main {
 .selected {
     background-color: orange;
     color: pink;
+}
+
+#slider-input {
+    width: clamp(50vw,300px,75vw);
+    height: 40px;
+    appearance: none;
+    background-image: linear-gradient(90deg, var(--c1), #2750e4, var(--c2));
+}
+
+#slider-input::-webkit-slider-thumb {
+    appearance: none;
+    background-color: #8a91af;
+    width: 25px;
+    height: 40px;
+    border-radius: 10px;
+    transition: all 0.1s;
+    border: 3px solid #000e46;
+}
+
+#slider-input:hover::-webkit-slider-thumb {
+    cursor:pointer;
+}
+
+#slider-input.input-min::-webkit-slider-thumb {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+#slider-input.input-max::-webkit-slider-thumb {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+#slider-input:active::-webkit-slider-thumb {
+    border-radius: 0 !important;
+    box-shadow: #fff 0px 0px 5px 0px;
+    border-color: #fff;
+}
+
+.slider-container {
+    height: 40px;
+    box-shadow: #000 0px 0px 10px 1px;
+}
+
+#vraag-0 {
+    flex-direction: column;
+    gap: 0;
+}
+
+#vraag-0 > .antwoord {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    padding: 5px 35px 10px;
 }

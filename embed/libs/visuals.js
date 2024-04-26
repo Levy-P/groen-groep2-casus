@@ -108,7 +108,7 @@ const train = {
         const trainWidth = img.train.width;
         let destination = (trainWidth + w_width/scale) / 2
         const animation = setInterval(() => {
-            trainX += (destination-trainX)/1;
+            trainX += (destination-trainX)/60;
             if (trainX >= destination-1) {
                 trainX = destination;
                 clearInterval(animation);
@@ -126,6 +126,27 @@ const train = {
     }
 }
 
-setInterval(() => {
-    train.center();
-}, 50);
+function sliderChange() {
+    const sliderInput = document.getElementById('slider-input');
+    const value = parseInt(sliderInput.value);
+
+    sliderInput.classList.remove('input-min')
+    sliderInput.classList.remove('input-max')
+
+    switch(value) {
+        case 0: {
+            sliderInput.classList.add('input-min')
+            break;
+        }
+        case 1250: {
+            sliderInput.classList.add('input-max')
+            break;
+        }
+    }
+
+    console.log(value)
+}
+
+function startQuestions() {
+    train.arrive();
+}
